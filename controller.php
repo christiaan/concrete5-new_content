@@ -1,8 +1,8 @@
 <?php defined('C5_EXECUTE') or die('Access Denied');
 
-class NewContentAlertPackage extends Package
+class NewContentPackage extends Package
 {
-	protected $pkgHandle = 'new_content_alert';
+	protected $pkgHandle = 'new_content';
 	protected $appVersionRequired = '5.5.0';
 	protected $pkgVersion = '1.0.0';
 	
@@ -26,7 +26,7 @@ class NewContentAlertPackage extends Package
 		Loader::model('single_page');
 	
 	
-		$p = SinglePage::add('/new_content_alert', $pkg);
+		$p = SinglePage::add('/new_content', $pkg);
 		if (is_object($p)) {
 			$p->update(array('cName'=>t('New Content'), 'cDescription'=>t('New Content Alert')));
 		}

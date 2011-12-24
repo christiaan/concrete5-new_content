@@ -1,5 +1,5 @@
 <?php
-class NewContentAlertModel implements Countable, IteratorAggregate
+class NewContentModel implements Countable, IteratorAggregate
 {
 	private $time_stamp;
 	private $pages;
