@@ -1,11 +1,10 @@
 (function($) {
-	var shown, time_stamp;
+	var time_stamp;
 	if (!$.cookie) {
 		throw new Error('New Content addon needs jquery.cookie.js');
 	}
 	
-	shown = $.cookie('new_content_shown');
-	if (!shown) {
+	if (!$.cookie('new_content_shown')) {
 		time_stamp = parseInt($.cookie('new_content'), 10);
 		
 		if (time_stamp) {
@@ -14,13 +13,17 @@
 				dataType: 'json',
 				success : function(data) {
 					$(function(){
-						var div = $('<div>').html(data.message);
-						$('body').append(div);
+						var link = $('<a>').html(data.message).
+							attr('href', (window.CCM_REL ? CCM_REL : "/") + "new_content/" + time_stamp).
+							bind('click', function() {
+								 $.cookie('new_content_shown', true, {path: window.CCM_REL ? CCM_REL : "/"});
+							}),
+						div = $('<div>');
+						$('body').append(div.append(link));
 					});
 				}
 			});
 		}
 	}
-	// $.cookie('new_content_shown', null, {path: window.CCM_REL ? CCM_REL : "/"});
 	$.cookie('new_content', (new Date()).getTime(), {expires: 90, path: window.CCM_REL ? CCM_REL : "/"});
 })(jQuery);
