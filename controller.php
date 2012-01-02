@@ -4,7 +4,7 @@ class NewContentPackage extends Package
 {
 	protected $pkgHandle = 'new_content';
 	protected $appVersionRequired = '5.5.0';
-	protected $pkgVersion = '1.0.0';
+	protected $pkgVersion = '0.9.0';
 	
 	public function getPackageDescription() {
 		return t('Show a alert to recurring visitors with new or changed content since their last visit.');
@@ -18,8 +18,6 @@ class NewContentPackage extends Package
 		Events::extend('on_page_view', 'NewContentHelper', 'loadFiles', 'packages/' . $this->pkgHandle . '/helpers/new_content.php');
 	}
 	
-	
-	
 	public function install() {
 		$pkg = parent::install();
 	
@@ -30,15 +28,5 @@ class NewContentPackage extends Package
 		if (is_object($p)) {
 			$p->update(array('cName'=>t('New Content'), 'cDescription'=>t('New Content Alert')));
 		}
-	
-// 		$p1 = SinglePage::add('/dashboard/multilingual/setup', $pkg);
-// 		if (is_object($p1)) {
-// 			$p1->update(array('cName'=>t('Setup'), 'cDescription'=>''));
-// 		}
-// 		$p2 = SinglePage::add('/dashboard/multilingual/page_report', $pkg);
-// 		if (is_object($p2)) {
-// 			$p2->update(array('cName'=>t('Page Report'), 'cDescription'=>''));
-// 		}
-// 		BlockType::installBlockTypeFromPackage('switch_language', $pkg);
 	}
 }
