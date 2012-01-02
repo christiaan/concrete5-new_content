@@ -18,17 +18,18 @@ $count = count($model);
 echo $jsonh->encode(array(
 	'count' => $count,
 	'message' => $count ?
-		t('<a class="close close-btn" href="#">&times;</a>
-        <p>There has been placed <strong>%d new</strong> content items since your last visit.</p>
+		('<a class="close close-btn" href="#">&times;</a>
+        <p>'.t('There has been placed %s new content items since your last visit.', '<strong>'.$count.'</strong>').'</p>
         <div class="alert-actions">
-          <a id="new_content_view" class="btn small" href="%s">View items</a> <a id="new_content_opt_out" class="btn small" href="#">Don\'t notify me again</a>
-        </div>',
-      $count,
-      $text->entities(rtrim($nav->getCollectionURL($page), '/')) . '/' . $model->timestamp()
-      ) :
-		t('<a class="close close-btn" href="#">&times;</a>
-		<p>There has been placed no new content since your last visit.</p>
-		<div class="alert-actions">
-          <a class="close" href="#">Close</a> <a id="new_content_opt_out" class="btn small" href="#">Don\'t notify me again</a>
-        </div>')
+          <a id="new_content_view" class="btn small" href="'.
+          	$text->entities(rtrim($nav->getCollectionURL($page), '/')) . '/' . $model->timestamp().
+          	'">'.t('View items').'</a> <a id="new_content_opt_out" class="btn small" href="#">'.t('Don\'t notify me again').'</a>
+        </div>'      	
+      	) :
+		('<a class="close close-btn" href="#">&times;</a>
+			<p>'.t('There has been placed no new content since your last visit.').'</p>
+			<div class="alert-actions">
+			    <a class="close" href="#">'.t('Close').'</a> <a id="new_content_opt_out" class="btn small" href="#">'.t("Don't notify me again").'</a>
+			</div>'
+		)
 ));
