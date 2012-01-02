@@ -1,2 +1,7 @@
+# 0.9.1
+- Add javascript files to footer making this addon 5.5+ only
+- Use PageList block styles for the singlepage
+- Don't include html in translate strings
+
 # 0.9.0
 - Initial Version
