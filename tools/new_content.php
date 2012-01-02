@@ -19,7 +19,7 @@ echo $jsonh->encode(array(
 	'count' => $count,
 	'message' => $count ?
 		t('<a class="close close-btn" href="#">&times;</a>
-        <p>There has been placed %d new content items since your last visit.</p>
+        <p>There has been placed <strong>%d new</strong> content items since your last visit.</p>
         <div class="alert-actions">
           <a id="new_content_view" class="btn small" href="%s">View items</a> <a id="new_content_opt_out" class="btn small" href="#">Don\'t notify me again</a>
         </div>',
