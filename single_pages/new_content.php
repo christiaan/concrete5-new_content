@@ -14,6 +14,6 @@ $nav = Loader::helper('navigation');
 </ul>
 <?php endforeach;
 	else:?>
-<h2>No new Content</h2>
-<p>Since your last visit there hasn't been placed any new content on this website.</p>
+<h2><?php echo t('No new Content')?></h2>
+<p><?php echo t('Since your last visit there hasn\'t been placed any new content on this website.')?></p>
 <?php endif;?>
