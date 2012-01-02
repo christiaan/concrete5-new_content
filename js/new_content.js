@@ -3,6 +3,9 @@
 	if (!$.cookie) {
 		throw new Error('New Content addon needs jquery.cookie.js');
 	}
+	if ($.cookie('new_content_opt_out')) {
+		return;
+	}
 	
 	if (!$.cookie('new_content_shown')) {
 		time_stamp = parseInt($.cookie('new_content'), 10);
@@ -13,13 +16,22 @@
 				dataType: 'json',
 				success : function(data) {
 					$(function(){
-						var link = $('<a>').html(data.message).
-							attr('href', (window.CCM_REL ? CCM_REL : "/") + "new_content/" + time_stamp).
-							bind('click', function() {
-								 $.cookie('new_content_shown', true, {path: window.CCM_REL ? CCM_REL : "/"});
-							}),
-						div = $('<div>');
-						$('body').append(div.append(link));
+						var div = $('<div>', {id: "new_content_bar", "class": "alert-message block-message warning"});
+						$('body').append(div.html(data.message));
+						
+						div.delegate('a', 'click', function() {
+							$.cookie('new_content_shown', true, {path: window.CCM_REL ? CCM_REL : "/"});
+						});
+						div.delegate('.close', 'click', function(e) {
+							e.preventDefault();
+							div.remove();
+						});
+						div.delegate('#new_content_opt_out', 'click', function(e) {
+							e.preventDefault();
+							$.cookie('new_content_opt_out', true, {expires: 356, path: window.CCM_REL ? CCM_REL : "/"});
+							$.cookie('new_content', null);
+							div.remove();
+						});
 					});
 				}
 			});

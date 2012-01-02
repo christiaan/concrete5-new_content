@@ -15,8 +15,7 @@ class NewContentPackage extends Package
 	}
 	
 	public function on_start() {
-		// TODO require the javascript file
-		Events::extend('on_page_view', 'NewContentHelper', 'loadJsFile', 'packages/' . $this->pkgHandle . '/helpers/new_content.php');
+		Events::extend('on_page_view', 'NewContentHelper', 'loadFiles', 'packages/' . $this->pkgHandle . '/helpers/new_content.php');
 	}
 	
 	

@@ -5,7 +5,7 @@ class NewContentModel implements Countable, IteratorAggregate
 	private $pages;
 	
 	public function __construct($time_stamp) {
-		$this->time_stamp = $time_stamp;
+		$this->time_stamp = (int) $time_stamp;
 	}
 	
 	public function count()
@@ -18,6 +18,11 @@ class NewContentModel implements Countable, IteratorAggregate
 			$cnt += count($set['pages']);
 		}
 		return $cnt;
+	}
+	
+	public function timestamp()
+	{
+		return $this->time_stamp;
 	}
 	
 	public function getIterator()

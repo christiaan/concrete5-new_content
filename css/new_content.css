@@ -1,0 +1,69 @@
+#new_content_bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #DDF4FB;
+	padding: 14px;
+	border: 1px solid #C6EDF9;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+#new_content_bar p {
+	margin-right: 30px;
+}
+
+#new_content_bar .close-btn {
+	font-family: Ariel, sans-serif;
+	line-height: 18px;
+	font-size: 20px;
+	float: right;
+	margin-top: 1px;
+	font-weight: bold;
+	color: #404040;
+	text-decoration: none;
+}
+
+#new_content_bar .alert-actions a {
+	padding: 7px 9px 7px;
+	font-size: 11px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+	cursor: pointer;
+	display: inline-block;
+	background-color: #e6e6e6;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+	background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+ 	border: 1px solid #ccc;
+	border-bottom-color: #bbb;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+	  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  -ms-transition: 0.1s linear all;
+  -o-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+}
+
+#new_content_bar .alert-actions a:hover {
+  background-position: 0 -15px;
+}
+#new_content_bar .alert-actions a:focus {
+  outline: 1px dotted #666;
+}
